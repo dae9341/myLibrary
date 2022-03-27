@@ -1,0 +1,29 @@
+{
+  "name": "mylibrary",
+  "version": "1.0.0",
+  "description": "dh's libray",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dae9341/myLibrary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dae9341/myLibrary/issues"
+  },
+  "homepage": "https://github.com/dae9341/myLibrary#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.49.9"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "node-sass": "^7.0.1"
+  }
+}

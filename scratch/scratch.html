@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../dist/scratch.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./scratch.js"></script>
+
+    </head>
+    <body>
+        <div class="scratch" id="scratch">
+            <canvas class="scratch__canvas" id="scratch__canvas"></canvas>
+            <div class="scratch__result">
+                결과
+            </div>
+        </div>
+        
+    </body>
+
+    <script>
+        var scratchDemo;
+        $(function(){
+            scratchDemo = new scratch("#scratch",{}) 
+        })
+    </script>
+</html>
