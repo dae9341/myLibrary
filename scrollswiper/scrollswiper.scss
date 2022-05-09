@@ -1,0 +1,26 @@
+.scrollswiper{
+    width: 100%; 
+    &-swiper{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-snap-align:start;
+        &::-webkit-scrollbar {
+            display: none; 
+        }
+        &-item{
+            &:nth-child(2n){background-color: aqua;}
+            &:nth-child(2n-1){background-color:yellowgreen;}
+            color:#362f9c; 
+            font-size: 20px;
+            flex:0 0 100%;
+            height:50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+        }
+    } 
+}   
