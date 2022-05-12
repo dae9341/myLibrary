@@ -1,0 +1,15 @@
+  @@include('./header.html')
+        <div class="scratch" id="scratch">
+            <canvas class="scratch__canvas" id="scratch__canvas"></canvas>
+            <div class="scratch__result">
+                결과
+            </div>
+        </div>
+        
+        <script>
+            var scratchDemo;
+            $(function(){
+                scratchDemo = new scratch("#scratch",{}) 
+            })
+        </script>
+  @@include('./footer.html')

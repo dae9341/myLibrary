@@ -5,7 +5,7 @@ const concat = require('gulp-concat');
 
 module.exports = function(){
     return new Promise(function(resolve){
-        src(["./scrollswiper/*.scss"])
+        src(dir.modules.scss)
             .pipe(sass().on('error', sass.logError))
             .pipe(dest("./dist"))
             .on("end",function(){
