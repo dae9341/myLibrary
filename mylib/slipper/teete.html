@@ -1,0 +1,49 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi, viewport-fit=cover">
+    <title>Title</title>
+    <script src="../../entry/vendor/jQuery_3.5.1.js"></script>
+    <script src="slipper.js"></script>
+    <link rel="stylesheet" href="../../css/kdh_base.css">
+    <link rel="stylesheet" href="../css/include.css">
+    <style>.test{width: 500px; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 50px; }</style></head>
+
+
+<body>
+<div class="slipper-container" style="width: 500px; height: 300px; opacity: 1;">
+    <div class="slipper-wrapper" style="transition-duration: 300ms; transform: translate3d(750px, 0px, 0px);">
+        <div class="slipper-item -cloneItem">
+            <span class="test" style="background: tan">D</span>
+        </div><div class="slipper-item">
+        <span class="test" style="background: yellowgreen">A</span>
+    </div>
+        <div class="slipper-item">
+            <span class="test" style="background: skyblue">B</span>
+        </div>
+        <div class="slipper-item">
+            <span class="test" style="background: indianred">C</span>
+        </div>
+        <div class="slipper-item">
+            <span class="test" style="background: tan">D</span>
+        </div><div class="slipper-item -cloneItem">
+        <span class="test" style="background: yellowgreen">A</span>
+    </div>
+    </div>
+    <div class="slipper-btns">
+        <a href="#" class="slipper-btns-prev" onclick="abcs.prev(); return false;">prev</a>
+        <a href="#" class="slipper-btns-next" onclick="abcs.next(); return false;">next</a>
+    </div>
+</div>
+
+
+<script>
+    var abcs;
+    $(function () {
+        abcs = new slipper(".slipper-container",{
+            speed:300
+        });
+
+
+    });
+
+</script></body></html>

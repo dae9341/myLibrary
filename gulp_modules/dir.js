@@ -10,7 +10,10 @@ module.exports = {
     modules:{
         scss:[
             "./mylib/scratch/*.scss",
-            "./mylib/scrollswiper/*.scss"
+            "./mylib/scrollswiper/*.scss",
+            "./mylib/fadeSlider/*.scss",
+            "./mylib/selectBox/*.scss",
+            "./mylib/slipper/*.scss"
         ],
         html:[
             "./mylib/scratch/*.html",

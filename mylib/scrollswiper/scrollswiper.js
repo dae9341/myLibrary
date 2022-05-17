@@ -1,31 +1,56 @@
 function scrollswiper(wrapperId,option){
     var me = this;
-    var $wrapperId = $(wrapperId);
     var opt = $.extend({
-        initIdx:0,
+        initIdx:3,
         swiperWrapper:".scrollswiper-swiper",
         listItem:".scrollswiper-swiper-item",
         counter:".scrollswiper-page",
         dot:".scrollswiper-dot",
         isCounter:true, // 카운터 사용여부
-        isDot:true
+        isDot:true,
+        perView:2
     },option);
 
-    let swiper_len = $(opt.listItem).length; // 총 개수
+    let $wrapperId = $(wrapperId);
+    let $swiperWrapper = $(opt.swiperWrapper);
+    let $listItem = $(opt.listItem);
+    let $counter = $(opt.counter);
+    let $dot = $(opt.dot);
+
+    opt.perView = opt.perView <= 1 ? 1:opt.perView;
+    let swiper_len = opt.perView > 1 ? $listItem.length-opt.perView+1 : $listItem.length; // 총 개수
     let observer = new IntersectionObserver(entries=>{
-        entries.forEach(item=>{
+        entries.forEach((item,idx)=>{
             if(item.isIntersecting){
-                me.index = $(item.target).index();
+                let nowIdx = $(item.target).index();
+                if(me.originIndex > nowIdx){
+                    me.direction="down"
+                }else if(me.originIndex < nowIdx){
+                    me.direction="up"
+                }else{
+                    return;
+                }
+
+
+                me.originIndex = nowIdx;
+                console.log(me.direction);
+
+                if(opt.perView > 1){
+                    me.index = me.direction=="up"? me.originIndex-opt.perView+1 : me.originIndex;
+                    
+                }else{
+                    me.index = me.originIndex;
+                }
                 pageSet();
             }
         })
     }, {
-        root:$(opt.swiperWrapper)[0],
+        root:$swiperWrapper[0],
         threshold: 0.5
     });
 
     //관찰대상 등록
-    $(opt.listItem).each(function(){
+    $listItem.each(function(){
         observer.observe($(this)[0]);
     })
 
@@ -38,18 +63,23 @@ function scrollswiper(wrapperId,option){
     function counterPaint (page){
         if(!opt.isCounter)// 카운터 사용여부에따라 체크
             return; 
-        $(opt.counter).html('<span>'+page+' / '+swiper_len+'</span>');
+        $counter.html('<span>'+page+' / '+swiper_len+'</span>');
     }
 
     function dotSet(index){
         if(!opt.isDot)// 카운터 사용여부에따라 체크
             return; 
-        $(opt.dot).find('span').eq(me.index).addClass('-on').siblings('span').removeClass('-on');
+        $dot.find('span').eq(me.index).addClass('-on').siblings('span').removeClass('-on');
     }
 
     me.init = function(){
         me.index=opt.initIdx; // 인덱스번호 세팅
-        opt.isCounter ? $(opt.counter).show():$(opt.counter).hide()
+        me.originIndex = opt.initIdx;
+        opt.isCounter ? $counter.show():$counter.hide();
+        me.slideTo(me.index);
+
+        let listItemWidth = (100/opt.perView)+'%';
+        $listItem.css('flex','0 0 '+listItemWidth);
          
 
         if(opt.isDot){
@@ -57,9 +87,9 @@ function scrollswiper(wrapperId,option){
             for(let i=0; i < swiper_len; i++){
                 dotHTML+="<span></span>";
             }
-            $(opt.dot).html(dotHTML);
+            $dot.html(dotHTML);
         }else{
-            $(opt.dot).hide();
+            $dot.hide();
         }
 
         pageSet()
@@ -77,11 +107,11 @@ function scrollswiper(wrapperId,option){
         index: {Number} 인덱스번호
     */
     me.slideTo = function(index){
-        let target = $(opt.listItem).eq(index)[0];
+        let target = $listItem.eq(index)[0];
         if(!target){
             return;
         }
-        $(opt.swiperWrapper).animate({scrollLeft:target.offsetLeft},500);
+        $swiperWrapper.animate({scrollLeft:target.offsetLeft},500);
         pageSet(); 
     };
 

@@ -1,0 +1,23 @@
+/*! 셀렉트 디자인 */
+.m-selectBox{width: 300px; +.m-selectBox{margin-top: 10px;}
+  &.-disabled .m-selectBox__button a{color: #b1b1b1;}
+  &.-disabled .m-selectBox__button a:after{border-color:#b1b1b1;}
+}
+.m-selectBox__button{width: 100%; background-color: #efefef; border:1px solid #d1d1d1; box-sizing: border-box;
+  a{width: 100%; display: block; color:#333333; position: relative;box-sizing: border-box; padding: 10px 5px;
+    &:after{content:''; display:block; width: 10px; height: 10px; border-right:1px solid #333333; border-bottom:1px solid #333333;position: absolute; top:50%; margin-top:-10px; right: 10px; transform: rotate(45deg); transition:0.5s ease-in-out; transform-origin: center center;}
+  }
+  a.-on{
+    &:after{transform:rotate(225deg); margin-top:-5px; }
+  }
+}
+.m-selectBox__options{display: none;background-color: #efefef;width: 100%; border:1px solid #d1d1d1; box-sizing: border-box;
+  &.-on{display: block;}
+  ul{overflow-x: hidden; overflow-y:auto; max-height: 209px; }
+  ul li{width: 100%; border-top:1px solid #d1d1d1; box-sizing: border-box;
+    &.-disabled{color:#b1b1b1;}
+    &:first-child{border-top:0;}
+    label{width: 100%; display: flex; align-items: center;padding: 10px 5px; cursor: pointer;}
+    label input[type=radio]{appearance:none;margin: 0;padding: 0;}
+  }
+}

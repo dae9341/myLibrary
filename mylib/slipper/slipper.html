@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../dist/slipper.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./slipper.js"></script>
+    </head>
+    <style>.test{width: 500px; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 50px; }</style>
+
+    <body>
+        <div class="slipper-container">
+            <div class="slipper-wrapper">
+                <div class="slipper-item">
+                    <span class="test" style="background: yellowgreen">A</span>
+                </div>
+                <div class="slipper-item">
+                    <span class="test" style="background: skyblue">B</span>
+                </div>
+                <div class="slipper-item">
+                    <span class="test" style="background: indianred">C</span>
+                </div>
+                <div class="slipper-item">
+                    <span class="test" style="background: tan">D</span>
+                </div>
+                <div class="slipper-item">
+                    <span class="test" style="background: teal">E</span>
+                </div>
+            </div>
+            <div class="slipper-btns">
+                <a href="#" class="slipper-btns-prev" onclick="abcs.prev(); return false;">prev</a>
+                <a href="#" class="slipper-btns-next" onclick="abcs.next(); return false;">next</a>
+            </div>
+
+            <div class="slipper-pagination">
+
+            </div>
+        </div>
+
+    </body>
+    <script>
+        var abcs;
+        $(function () {
+            abcs = new slipper(".slipper-container",{
+                // initIdx: 3,
+                // speed:500,
+                // loop:false,
+                // autoPlay:true,
+                // delay:2000,
+                // initSlipper:function () {
+                //
+                // }
+
+
+            });
+
+
+        });
+
+    </script>
+</html>>
