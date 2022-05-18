@@ -6,11 +6,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="test.js"></script>
     </head>
     <body>
-        <div class="main container px-5 mx-auto">
+<!--         <div class="main container px-5 mx-auto">
             <div class="filelist flex flex-row flex-wrap gap-10-px">
-                <!--샘플-->
                 <div class="m-card basis-1/2 border-2 border-gray-300 border-solid">
                     <a href="mylib/scrollswiper/scrollswiper.html">
                         <span>scrollswiper</span>
@@ -22,26 +22,38 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <!-- <div class="main">
-            <ul id="test">
-                <m-item></m-item>
-            </ul>
         </div> -->
+        <div class="main">
+            <div id="test">
+                <my-lib :mylibdata="mylibdata" ></my-lib>
+            </div>
+        </div>
     </body>
     <script>
-        Vue.component('m-item',{
-            template:'<div class="font-bold px-5">테스트</div>',
-            methods:{},
-            data:{}
-        });
-
+        var mylib_list=[
+            {
+                "title":"스크롤 스와이퍼", 
+                "channel":"mobile",
+                "url":"./mylib/scrollswiper/scrollswiper.html",
+                "description":"css 스크롤 스냅을 활용한 스와이퍼 라이브러리"
+            },
+            {
+                "title":"디자인 셀렉트", 
+                "channel":"all",
+                "url":"./mylib/selectBox/selectBox.html",
+                "description":"자체 디자인을 입히고 셀렉트 기능 활용하는 셀렉트박스"
+            },
+            {
+                "title":"달력-Mobile", 
+                "channel":"mobile",
+                "url":"./mylib/calendar/calendar.html",
+                "description":"자체 디자인을 입히고 캘린더 기능 활용하는 캘린더 UI (연/월 선택)"
+            }
+        ]
         $(function(){
-            new Vue({
-                el:"#test",
-                data:{}
-            })
-            
-        })
+            myLibList("#test",{
+                data:mylib_list
+            });
+        });
     </script>
 </html>
