@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.c-fadeSlider {
+  position: relative;
+  width: 818px;
+  height: 360px;
+}
+
+.c-fadeSlider__img {
+  position: relative;
+  width: 720px;
+}
+.c-fadeSlider__img ul li {
+  position: absolute;
+  top: 0;
+  left: 98px;
+  z-index: 1;
+  opacity: 0;
+  transition: left 2s, opacity 1s;
+}
+
+.c-fadeSlider__btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 21;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-fadeSlider__btn a {
+  display: block;
+  position: relative;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.c-fadeSlider__btn a:before {
+  content: "일시정지";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.c-fadeSlider__btn.-on a:before {
+  content: "시작";
+}
+
+.c-fadeSlider__control > a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  z-index: 21;
+}
+.c-fadeSlider__control > a::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #004444;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+}
+.c-fadeSlider__control__prev {
+  left: 10px;
+}
+.c-fadeSlider__control__prev::before {
+  content: "◀";
+}
+.c-fadeSlider__control__next {
+  right: 10px;
+}
+.c-fadeSlider__control__next::before {
+  content: "▶";
+}

@@ -1,7 +1,10 @@
 function selectBox(wrapperId,option) {
     var me = this;
     var opt = $.extend({
-        isDisabled: false
+        isDisabled: false,
+        disabledClick:function(){
+            // me.select(0);
+        }
     },option);
 
     var $button = $(wrapperId).find(".m-selectBox__button > a"); // 셀렉트 옵션 열고닫는 버튼
@@ -23,23 +26,25 @@ function selectBox(wrapperId,option) {
                 return;
             }
         });
-
+        /* 
         // 셀렉트 닫기
-        $(document).click(function (e) {
+        $(document).off().on('click',function(e){
+            console.log(e.target);
             if ($(e.target).parents(wrapperId).length > 0 && !$(e.target).find("input[type='radio']").prop("checked"))  { // select영역이면서 선택된 ITEM이 아닐경우 닫지않음. => change이벤트에서 닫음 처리  
                 return;
             }else{
                 me.close();
             }
 
-        });
+        }); */
 
         // 옵션 변경시 value, index 값
         $optionsRadio.on("change",function () {
             var $this_parents_li = $(this).parents("li");
+            console.log(isOpen)
 
             if($this_parents_li.hasClass("-disabled")){
-                me.select(0); // 초기화
+                opt.disabledClick.call() // 비활성요소 클릭시 콜백
             }else{
                 me.select($this_parents_li.index());
                 me.close();
@@ -48,11 +53,7 @@ function selectBox(wrapperId,option) {
     }
 
     function selectBoxDisabled(){
-        if(opt.isDisabled){
-            $(wrapperId).addClass("-disabled");
-        }else{
-            $(wrapperId).removeClass("-disabled");
-        }
+        opt.isDisabled ? $(wrapperId).addClass("-disabled") : $(wrapperId).removeClass("-disabled")
     }
 
 
@@ -83,11 +84,7 @@ function selectBox(wrapperId,option) {
 
     // 옵션리스트 토글
     me.toggle = function () {
-        if(isOpen){
-            me.close();
-        }else{
-            me.open();
-        }
+        isOpen ? me.close(): me.open();
     };
 
     // 선택 (li의 인덱스 값으로 선택함)
