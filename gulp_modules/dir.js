@@ -13,7 +13,8 @@ module.exports = {
             "./mylib/scrollswiper/*.scss",
             "./mylib/fadeSlider/*.scss",
             "./mylib/selectBox/*.scss",
-            "./mylib/slipper/*.scss"
+            "./mylib/slipper/*.scss",
+            "./mylib/listRolling/*.scss",
         ],
         html:[
             "./mylib/scratch/*.html",

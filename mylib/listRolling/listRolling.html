@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/listRolling.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./listRolling.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <article class="listRolling" id="listRolling">
+        <div class="listRolling__inner">
+            <ol>
+                <li>
+                    <a href="#" >테스트1</a>
+                </li>
+                <li>
+                    <a href="#" >테스트2</a>
+                </li>
+                <li>
+                    <a href="#" >테스트3</a>
+                </li>
+                <li>
+                    <a href="#" >테스트4</a>
+                </li>
+                <li>
+                    <a href="#" >테스트5</a>
+                </li>
+            </ol>
+        </div>
+    </article>
+
+    <script>
+        var listRolling; 
+
+        $(function(){
+            listRolling = new listRolling('#listRolling',{
+                initIdx:0, // 시작인덱스
+                delay:1500, // 슬라이드될까지 delay시간
+            });
+        })
+
+    </script>
+    
+</body>
+</html>
